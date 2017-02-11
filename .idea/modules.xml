@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../attrs-utils/.idea/attrs-validators.iml" filepath="$PROJECT_DIR$/../attrs-utils/.idea/attrs-validators.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/attrs-utils.iml" filepath="$PROJECT_DIR$/.idea/attrs-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/attrs-validators.iml" filepath="$PROJECT_DIR$/.idea/attrs-validators.iml" />
     </modules>
   </component>
 </project>

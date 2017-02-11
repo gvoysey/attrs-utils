@@ -20,8 +20,8 @@ def from_docopt(argv: str, docstring: str, version=None):
     # sanitize the keys: can't contain '-', must be a valid attribute name.
     for key in docopt_dict.keys():
         clean = key.lstrip('-')
-        if not __is_valid_name(key):
-            raise AttributeError("Cannot convert key '{}' to a valid attribute name".format(key))
+        if not __is_valid_name(clean):
+            raise AttributeError("Cannot convert key '{}' to a valid attribute name".format(clean))
         docopt_dict[clean] = docopt_dict.pop(key)
     # make a class out of it
     return attr.make_class(name='InputArgs', attrs=docopt_dict)()
