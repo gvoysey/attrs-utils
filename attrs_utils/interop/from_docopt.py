@@ -18,13 +18,14 @@ def from_docopt(argv: str, docstring: str, version=None):
     # get the docopt output
     docopt_dict = docopt(doc=docstring, version=version, argv=argv)
     # sanitize the keys: can't contain '-', must be a valid attribute name.
+    temp = {}
     for key in docopt_dict.keys():
         clean = key.lstrip('-')
         if not __is_valid_name(clean):
             raise AttributeError("Cannot convert key '{}' to a valid attribute name".format(clean))
-        docopt_dict[clean] = docopt_dict.pop(key)
+        temp[clean] = docopt_dict[key]
     # make a class out of it
-    return attr.make_class(name='InputArgs', attrs=docopt_dict)()
+    return attr.make_class(name='InputArgs', attrs=temp)()
 
 
 def __is_valid_name(name):
