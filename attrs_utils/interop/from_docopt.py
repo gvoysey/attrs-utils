@@ -23,7 +23,7 @@ def from_docopt(argv: str, docstring: str, version=None):
         clean = key.lstrip('-')
         if not __is_valid_name(clean):
             raise AttributeError("Cannot convert key '{}' to a valid attribute name".format(clean))
-        temp[clean] = docopt_dict[key]
+        temp[clean] = attr.ib(default=docopt_dict[key])
     # make a class out of it
     return attr.make_class(name='InputArgs', attrs=temp)()
 
